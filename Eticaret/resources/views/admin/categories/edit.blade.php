@@ -6,7 +6,7 @@
                   <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Form validations
+                              Kategori Düzenleme Formu
                           </header>
                           <div class="panel-body">
                               <div class=" form">

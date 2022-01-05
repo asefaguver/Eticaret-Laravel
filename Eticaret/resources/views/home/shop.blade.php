@@ -58,19 +58,7 @@
                                
                             </div>
                         </div>
-                        <div class="filter-price-left">
-                            <div class="title-left">
-                                <h3>Price</h3>
-                            </div>
-                            <div class="price-box-slider">
-                                <div id="slider-range"></div>
-                                <p>
-                                    <input type="text" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
-                                    <button class="btn hvr-hover" type="submit">Filter</button>
-                                </p>
-                            </div>
-                        </div>
-                       
+                        
 
                     </div>
                 </div>
@@ -117,7 +105,7 @@
                                                     <div class="mask-icon">
                                                         <ul>
                                                         <li><a href="/{{$urun->id}}/urun-detay" data-toggle="tooltip" data-placement="right" title="View"><i class="fa fa-eye"></i></a></li>                                                            
-                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="fa fa-heart"></i></a></li>
+                                                            
                                                         </ul>
                                                         <form action="{{ route('shopcart-store',['id'=>$urun->id]) }}" method="post">
                                                             @csrf 
@@ -127,7 +115,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                    <h4>{{$urun->title}}</h4>
+                                                    <a href="/{{$urun->id}}/urun-detay"><h4>{{$urun->title}}</h4></a>
                                                     <h5> $ {{$urun->price}}</h5>
                                                 </div>
                                             </div>
@@ -152,7 +140,7 @@
                                                         <div class="mask-icon">
                                                             <ul>
                                                                 <li><a href="/{{$urun->id}}/urun-detay" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>                                                                
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                                
                                                             </ul>
 
                                                         </div>
@@ -161,7 +149,7 @@
                                             </div>
                                             <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
                                                 <div class="why-text full-width">
-                                                    <h4>{{$urun->title}}</h4>
+                                                <a href="/{{$urun->id}}/urun-detay"><h4>{{$urun->title}}</h4></a>
                                                     <h5> <del>$ 60.00</del> $ {{$urun->price}}</h5>
                                                     <p>{{$urun->detail}}</p>
                                                     <form action="{{ route('shopcart-store',['id'=>$urun->id]) }}" method="post">

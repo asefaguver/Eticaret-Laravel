@@ -50,7 +50,7 @@
     </div>
     <!-- End Slider -->
         <br><br><br>
-        <h2>Featured Books</h2>
+        
     <!-- Start Instagram Feed  -->
     <div class="instagram-box">    
         <div class="main-instagram owl-carousel owl-theme">        
@@ -75,8 +75,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
-                        <h1>Featured Products</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                        <h1>Haftanın Fırsatları</h1>                        
                     </div>
                 </div>
             </div>
@@ -108,8 +107,7 @@
                             <img src="{{asset('images/'.$pro->image)}}" class="img-fluid" alt="Image" style="width:180px; height:220px">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="/{{$pro->id}}/urun-detay" data-toggle="tooltip" data-placement="right" title="View"><i class="fa fa-eye"></i></a></li>                                    
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="/{{$pro->id}}/urun-detay" data-toggle="tooltip" data-placement="right" title="View"><i class="fa fa-eye"></i></a></li>                                                                        
                                 </ul>
                                 <form action="{{ route('shopcart-store',['id'=>$pro->id]) }}" method="post">
                                     @csrf 
@@ -119,7 +117,7 @@
                             </div>
                         </div>
                         <div class="why-text">
-                            <h4> {{$pro->title}}  </h4>
+                            <a href="/{{$pro->id}}/urun-detay"><h4> {{$pro->title}}  </h4></a>
                             <h5> ${{$pro->price}} </h5>
                         </div>
                     </div>

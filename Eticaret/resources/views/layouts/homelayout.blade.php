@@ -76,24 +76,36 @@
                                 <!-- Hesap mail : m@mail.com ,,,,, şifre: 123456 -->
                                     @auth
                                         
-                                        @if(Auth::user()->utype == 'ADM')
-                                        <li>
-                                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                                        </li>
-                                        <li>
-                                        <a href="/product"class="text-sm text-gray-700 dark:text-gray-500 underline">Product</a>    
-                                        </li>
-                                        <li>
-                                        <a href="#" class="text-sm text-gray-700 dark:text-gray-500 underline">{{Auth::user()->name}}</a>
-                                        </li>
-                                        @else
+                                        @if(Auth::user()->utype == 'ADM')                                        
                                         
                                         <li class="dropdown">
                                         <a href="#" class="btn btn-secondary dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">{{Auth::user()->name}}</a>
                                         <ul class="dropdown-menu" style="background-color: #6c757d;">                                            
                                             <!-- <li><a href="{{ route('profile.show') }}"><i class=" fa fa-suitcase"></i> Profile</a></li>-->
                                             <li><a href="/userprofile"><i class=" fa fa-suitcase"></i> Profile</a></li>
-                                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                            
+                                            <li><a href="{{route('user_orders')}}"><i class="fa fa-bell-o"></i> My Orders </a></li>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+                                                    {{ __('Log Out') }}
+                                                </x-jet-dropdown-link>
+                                            </form>
+                                        </ul>
+                                        </li>
+                                        <li>
+                                        <a href="/product"class="text-sm text-gray-700 dark:text-gray-500 underline">Admin Dashboard</a>    
+                                        </li>
+                                        @else
+                                        
+                                        <li class="dropdown" style="padding-right: 250px;">
+                                        <a href="#" class="btn btn-secondary dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">{{Auth::user()->name}}</a>
+                                        <ul class="dropdown-menu" style="background-color: #6c757d;">                                            
+                                            <!-- <li><a href="{{ route('profile.show') }}"><i class=" fa fa-suitcase"></i> Profile</a></li>-->
+                                            <li><a href="/userprofile"><i class=" fa fa-suitcase"></i> Profile</a></li>
+                                            
                                             <li><a href="{{route('user_orders')}}"><i class="fa fa-bell-o"></i> My Orders </a></li>
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
@@ -108,9 +120,9 @@
                                         <!--<li>
                                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                                         </li>-->
-                                        <li>
+                                        <!-- <li>
                                         <a href="/product"class="text-sm text-gray-700 dark:text-gray-500 underline">Admin Dashboard</a>    
-                                        </li>
+                                        </li> -->
                                         @endif
                                     @else
                                         <li>
@@ -228,8 +240,8 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
-                            <h4>About ThewayShop</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <h4>Book Store Hakkında</h4>
+                            <p>Book Store sitemiz, kitap alanında en kaliteli ürünleri tüketiciye en uygun fiyatlarla sunma amacıyla 2021 tarihinde Guver ltd. şti. tarafından kurulmuştur. 2021 yılından bu yana ofis ve kırtasiye malzemeleri sektöründe . İstanbul Kadıköy’de  bulunan firmamız her zaman müşterilerinin memnuniyetini öncelikleri arasında ilk sıraya koymuştur. 
                                 </p>
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -257,7 +269,7 @@
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link-contact">
-                            <h4>Contact Us</h4>
+                            <h4>Bize Ulaşın</h4>
                             <ul>
                                 <li>
                                     <p><i class="fa fa-map-pin"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
@@ -278,8 +290,8 @@
     <!-- End Footer  -->
      <!-- Start copyright  -->
      <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-            <a href="https://html.design/">html design</a></p>
+        <p class="footer-company">Tüm hakları saklıdır. &copy; 2021 <a href="#">Book Store</a> Design By :
+            <a href="#">A. Sefa Güver</a></p>
     </div>
     <!-- End copyright  -->
 
